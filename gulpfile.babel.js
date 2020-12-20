@@ -53,6 +53,7 @@ function colorCodeString(data){
 function themkitInit(env, bs) {
   let timeout;
   const options = {
+    allowLive: true,
     env: env,
     config: path.resolve(__dirname, 'config.yml')
   };
