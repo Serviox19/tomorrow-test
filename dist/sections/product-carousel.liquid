@@ -1,0 +1,160 @@
+<div id="product__slider--{{ section.id }}" class="product__slider {% if section.settings.additional_classes %}{{ section.settings.additional_classes }}{% endif %}">
+  <div class="section_info">
+    <h2 class="section-title">{{ section.settings.section-title }}</h2>
+  </div>
+  <div class="slider-inner swiper-container">
+    <div class="swiper-wrapper">
+      {% assign spot = 1 %}
+      {% for block in section.blocks %}
+        {% if block.settings.feature_product.size > 0 %}
+          {% assign prod = all_products[block.settings.feature_product] %}
+          {% assign title = prod.title %}
+          {% assign image = prod.featured_image | img_url: '640x' %}
+        {% else %}
+          {% assign prod = '' %}
+          {% assign title = '' %}
+          {% assign image = '' %}
+        {% endif %}
+        <div class="product__slide swiper-slide spot--{{ spot }}">
+          <div class="imageContainer">
+            <img src="{{ image }}" class="product__slide--image" alt="{{ prod.featured_media.preview_image.alt }}" />
+          </div>
+          <div class="product__info">
+            <h3 class="product-title">{{ title }}</h3>
+            <form method="post" action="/cart/add">
+              <input type="hidden" name="id" value="{{ prod.variants[0].id }}" />
+              <input min="1" type="number" id="quantity" name="quantity" value="1"/>
+              <input type="submit" value="{{ 'products.product.add_to_cart' | t }} - {{ prod.price | money }}" class="add-to-bag" aria-haspopup="dialog" data-add-to-cart />
+            </form>
+          </div>
+        </div>
+        {% assign spot = spot | plus: 1 %}
+      {% endfor %}
+    </div>
+    <div class="swiper-button-prev" id="swiperButtonPrev-{{ section.id }}"></div>
+    <div class="swiper-button-next" id="swiperButtonNext-{{ section.id }}"></div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+  var sectionId = '{{ section.id }}';
+  new Swiper('#product__slider--' + sectionId + ' .swiper-container', {
+    slidesPerView: {{ section.settings.slider_group_count_mobile }},
+    spaceBetween: 10,
+    slidesPerGroup: {{ section.settings.slider_group_count_mobile }},
+    navigation: {
+      prevEl: '#swiperButtonPrev-' + sectionId,
+      nextEl: '#swiperButtonNext-' + sectionId
+    },
+    breakpoints: {
+      720: {
+        slidesPerView: {{ section.settings.slider_group_count }},
+        slidesPerGroup: {{ section.settings.slider_group_count }},
+        centeredSlides: true
+      }
+    }
+  });
+})
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Product Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Used only to identify in Customerizer"
+    },
+    {
+      "id": "section-title",
+      "type": "text",
+      "label": "Section Title"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "rem",
+      "label": "Top Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "rem",
+      "label": "Bottom Padding",
+      "default": 0
+    },
+    {
+      "id": "click-link",
+      "type": "url",
+      "label": "Click To Link"
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "range",
+      "id": "slider_group_count_mobile",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Slides in Group - Mobile",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "slider_group_count",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slides in Group - Desktop",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Additional Settings"
+    },
+    {
+      "id": "additional_classes",
+      "type": "text",
+      "label": "Additional Classes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Pod",
+      "settings": [
+        {
+          "id": "feature_product",
+          "type": "product",
+          "label": "Choose Product to Add"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Slider",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

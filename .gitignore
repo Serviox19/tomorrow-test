@@ -17,6 +17,7 @@ npm-debug.log
 *.o
 *.so
 dist/assets/overrides.css
+dist/assets/overrides.js
 
 # Packages #
 ############
@@ -64,8 +65,3 @@ secrets.json
 /config.yml
 /theme.lock
 /package-lock.json
-# /dist/assets/compiled.css
-# /dist/assets/compiled.scss.liquid
-# /dist/assets/compiled.scss.liquid.map
-# /dist/assets/compiled.js
-# /dist/assets/main.css
