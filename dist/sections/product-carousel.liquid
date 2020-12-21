@@ -21,11 +21,9 @@
           </div>
           <div class="product__info">
             <h3 class="product-title">{{ title }}</h3>
-            <form method="post" action="/cart/add">
-              <input type="hidden" name="id" value="{{ prod.variants[0].id }}" />
-              <input min="1" type="number" id="quantity" name="quantity" value="1"/>
-              <input type="submit" value="{{ 'products.product.add_to_cart' | t }} - {{ prod.price | money }}" class="add-to-bag" aria-haspopup="dialog" data-add-to-cart />
-            </form>
+            <p class="title_price--info">
+              starting at {{ prod.price | money }}
+            </p>
           </div>
         </div>
         {% assign spot = spot | plus: 1 %}
@@ -53,7 +51,7 @@ $(document).ready(function() {
       720: {
         slidesPerView: {{ section.settings.slider_group_count }},
         slidesPerGroup: {{ section.settings.slider_group_count }},
-        centeredSlides: true
+        centeredSlides: false
       }
     }
   });
@@ -112,11 +110,11 @@ $(document).ready(function() {
     {
       "type": "range",
       "id": "slider_group_count_mobile",
-      "min": 2,
+      "min": 1,
       "max": 4,
       "step": 1,
       "label": "Slides in Group - Mobile",
-      "default": 2
+      "default": 1
     },
     {
       "type": "range",
