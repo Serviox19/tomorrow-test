@@ -1,0 +1,124 @@
+//Product slider
+
+.product__slider {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-left: 3rem;
+
+  .section_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem 1.5rem;
+    color: #000;
+
+    @media only screen and (min-width: 767px) {
+      padding: 0 1rem 2.075rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: .3px;
+
+      @media only screen and (min-width: 767px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      max-width: 3rem;
+    }
+  }
+
+  .swiper-container {
+    padding-bottom: 2.5rem;
+
+    @media only screen and (min-width: 767px) {
+      padding-bottom: 4rem;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+
+    .swiper-scrollbar {
+      width: 85%;
+      left: 50%;
+      transform: translate(-50%);
+      border-radius: 0;
+      height: 6px;
+
+      @media only screen and (min-width: 767px) {
+        height: 11px;
+      }
+
+      @media only screen and (min-width: 1300px) {
+        width: 100%;
+      }
+
+      .swiper-scrollbar-drag {
+        border-radius: 0;
+        background: #897C51;
+      }
+    }
+  }
+
+  .product__slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .imageContainer {
+      padding-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+
+      img {
+        max-width: 90%;
+        height: auto;
+        object-fit: cover;
+
+        @media only screen and (min-width: 767px) {
+
+        }
+
+        // @include media-query($large-up) {
+        //   width: 199.43px;
+        //   height: 248.88px;
+        // }
+      }
+    }
+
+    .product__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--title {
+        font-size: .875rem;
+        line-height: 1.1rem;
+        letter-spacing: .5px;
+        margin-bottom: .4rem;
+        color: #000;
+
+        @media only screen and (min-width: 767px) {
+          font-size: 1.125rem;
+          margin-bottom: .5rem;
+        }
+      }
+
+      &--price {
+
+      }
+
+    }
+  }
+}

@@ -20,8 +20,8 @@
             <img src="{{ image }}" class="product__slide--image" alt="{{ prod.featured_media.preview_image.alt }}" />
           </div>
           <div class="product__info">
-            <h3 class="product-title">{{ title }}</h3>
-            <p class="title_price--info">
+            <h3 class="product__info--title">{{ title }}</h3>
+            <p class="product__info--price">
               starting at {{ prod.price | money }}
             </p>
           </div>
@@ -35,27 +35,41 @@
   </div>
 </div>
 
+<style>
+
+  #product__slider--{{ section.id }} {
+    padding-top: {{ section.settings.section_padding_top }}rem;
+    padding-bottom: {{ section.settings.section_padding_bottom }}rem;
+  }
+
+</style>
+
 
 <script>
-$(document).ready(function() {
-  var sectionId = '{{ section.id }}';
-  new Swiper('#product__slider--' + sectionId + ' .swiper-container', {
-    slidesPerView: {{ section.settings.slider_group_count_mobile }},
-    spaceBetween: 10,
-    slidesPerGroup: {{ section.settings.slider_group_count_mobile }},
-    navigation: {
-      prevEl: '#swiperButtonPrev-' + sectionId,
-      nextEl: '#swiperButtonNext-' + sectionId
-    },
-    breakpoints: {
-      720: {
-        slidesPerView: {{ section.settings.slider_group_count }},
-        slidesPerGroup: {{ section.settings.slider_group_count }},
-        centeredSlides: false
+  $(document).ready(function() {
+    var sectionId = '{{ section.id }}';
+    new Swiper('#product__slider--' + sectionId + ' .swiper-container', {
+      direction: "horizontal",
+      navigation: {
+        prevEl: '#swiperButtonPrev-' + sectionId,
+        nextEl: '#swiperButtonNext-' + sectionId
+      },
+      loop: true,
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: false,
+      },
+      slidesPerView: {{ section.settings.slider_group_count_mobile }},
+      spaceBetween: 10,
+      slidesPerGroup: {{ section.settings.slider_group_count_mobile }},
+      breakpoints: {
+        720: {
+          slidesPerView: {{ section.settings.slider_group_count }},
+          slidesPerGroup: {{ section.settings.slider_group_count }}
+        }
       }
-    }
-  });
-})
+    });
+  })
 
 </script>
 
