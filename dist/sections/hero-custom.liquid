@@ -1,0 +1,134 @@
+<div id="hero_section--{{ section.id }}" class="homepage_hero {% if section.settings.additional_classes %}{{ section.settings.additional_classes }}{% endif %}">
+
+  <div class="hero-images">
+    <div class="left">
+      <img src="{{section.settings.desktop_image_one | img_url: '1200x' }}" class="hero_image--desktop" />
+      {% if section.settings.hero_link_one != blank %}
+        <a href="{{section.settings.hero_link_one}}" class="hero-button">{{section.settings.hero_link_one}}</a>
+      {% endif %}
+    </div>
+    <div class="right">
+      <img src="{{section.settings.desktop_image_two | img_url: '1200x' }}" class="hero_image--desktop" />
+      {% if section.settings.hero_link_two != blank %}
+        <a href="{{section.settings.hero_link_two}}" class="hero-button">{{section.settings.hero_link_two}}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="hero-images mobile">
+    <div class="left">
+      <img src="{{section.settings.mobile_image_one | img_url: '640x' }}" class="hero_image--mobile" />
+      {% if section.settings.hero_link_one != blank %}
+        <a href="{{section.settings.hero_link_one_url}}" class="hero-button">{{section.settings.hero_link_one}}</a>
+      {% endif %}
+    </div>
+    <div class="right">
+      <img src="{{section.settings.mobile_image_two | img_url: '640x' }}" class="hero_image--mobile" />
+      {% if section.settings.hero_link_two != blank %}
+        <a href="{{section.settings.hero_link_two_url}}" class="hero-button">{{section.settings.hero_link_two}}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+
+  #hero_section--{{ section.id }}.homepage_hero {
+    min-height: {{ section.settings.height }}
+  }
+
+  #hero_section--{{ section.id }}.homepage_hero .hero_image--desktop {
+    min-height: {{ section.settings.height }}
+  }
+
+  #hero_section--{{ section.id }}.homepage_hero .hero_image--mobile {
+    min-height: {{ section.settings.height_mobile }}
+  }
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Hero - Custom",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "id": "height",
+      "type": "text",
+      "label": "Set Image Height"
+    },
+    {
+      "id": "height_mobile",
+      "type": "text",
+      "label": "Set Image Height - Mobile"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "id": "desktop_image_one",
+      "type": "image_picker",
+      "label": "Hero One Desktop"
+    },
+    {
+      "id": "desktop_image_two",
+      "type": "image_picker",
+      "label": "Hero Two Desktop"
+    },
+    {
+      "id": "mobile_image_one",
+      "type": "image_picker",
+      "label": "Hero One Mobile"
+    },
+    {
+      "id": "mobile_image_two",
+      "type": "image_picker",
+      "label": "Hero Two Mobile"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "id": "hero_link_one",
+      "type": "text",
+      "label": "Hero One Text"
+    },
+    {
+      "id": "hero_link_one_url",
+      "type": "url",
+      "label": "Hero One URL"
+    },
+    {
+      "id": "hero_link_two",
+      "type": "text",
+      "label": "Hero Two Text"
+    },
+    {
+      "id": "hero_link_two_url",
+      "type": "url",
+      "label": "Hero Two URL"
+    },
+    {
+      "type": "header",
+      "content": "Additional Settings"
+    },
+    {
+      "id": "additional_classes",
+      "type": "text",
+      "label": "Additional Classes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero - Custom",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

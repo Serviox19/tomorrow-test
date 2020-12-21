@@ -115,7 +115,7 @@ export const buildScripts = () => src(paths.js.src)
     format: 'cjs',
   }))
   .pipe(concat('overrides.js'))
-  .pipe(uglify()))
+  .pipe(uglify())
   .pipe(sourcemaps.write())
   .pipe(dest(paths.js.dest))
   .pipe(touch());
