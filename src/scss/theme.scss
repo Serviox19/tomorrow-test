@@ -3,12 +3,13 @@
 @import "core/vars";
 @import "core/mixins";
 @import "core/base";
-@import "core/typeography"
+@import "core/typeography";
 
 
 //Sections
-// @import "sections/hero"
-// @import "sections/product_carousel"
+@import "sections/header";
+@import "sections/hero";
+@import "sections/carousel";
 
 
 //Pages

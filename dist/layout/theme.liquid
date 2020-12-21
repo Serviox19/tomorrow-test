@@ -74,6 +74,7 @@
   </script>
 
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+  {{ 'compiled.css' | asset_url | stylesheet_tag }}
 
   <style>
     {{ header_font | font_face: font_display: 'swap' }}
@@ -148,8 +149,7 @@
   {%- endif -%}
 
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
-  <!-- Custom JS -->
+  <!-- Custom JS (Compiled) -->
   <script src="{{ 'overrides.js' | asset_url }}" async="defer"></script>
 
   <script type="text/javascript">
