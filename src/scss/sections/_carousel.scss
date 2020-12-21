@@ -1,9 +1,12 @@
 //Product slider
 
 .product__slider {
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
-  padding-left: 3rem;
+
+  @media only screen and (min-width: 767px) {
+    padding: 0 3rem;
+  }
 
   .section_info {
     display: flex;
@@ -12,14 +15,11 @@
     padding: 0 1rem 1.5rem;
     color: #000;
 
-    @media only screen and (min-width: 767px) {
-      padding: 0 1rem 2.075rem;
-    }
-
     .section-title {
       margin: 0;
       font-size: 1.5rem;
       letter-spacing: .3px;
+      text-transform: none;
 
       @media only screen and (min-width: 767px) {
         font-size: 2.5rem;
@@ -49,19 +49,20 @@
       left: 50%;
       transform: translate(-50%);
       border-radius: 0;
-      height: 6px;
-
-      @media only screen and (min-width: 767px) {
-        height: 11px;
-      }
+      height: 5px;
 
       @media only screen and (min-width: 1300px) {
         width: 100%;
       }
 
       .swiper-scrollbar-drag {
+        width: 50%;
         border-radius: 0;
         background: #897C51;
+
+        @media only screen and (min-width: 768px) {
+          width: 25% !important;
+        }
       }
     }
   }

@@ -1,35 +1,44 @@
 <div id="hero_section--{{ section.id }}" class="homepage_hero {% if section.settings.additional_classes %}{{ section.settings.additional_classes }}{% endif %}">
 
-  <div class="hero-images">
-    <div class="left">
-      <img src="{{section.settings.desktop_image_one | img_url: '1200x' }}" class="hero_image--desktop" />
-      {% if section.settings.hero_link_one != blank %}
-        <a href="{{section.settings.hero_link_one}}" class="hero-button">{{section.settings.hero_link_one}}</a>
-      {% endif %}
-    </div>
-    <div class="right">
-      <img src="{{section.settings.desktop_image_two | img_url: '1200x' }}" class="hero_image--desktop" />
-      {% if section.settings.hero_link_two != blank %}
-        <a href="{{section.settings.hero_link_two}}" class="hero-button">{{section.settings.hero_link_two}}</a>
-      {% endif %}
-    </div>
-  </div>
-
   <div class="hero-images mobile">
     <div class="left">
-      <img src="{{section.settings.mobile_image_one | img_url: '640x' }}" class="hero_image--mobile" />
+      {% if section.settings.mobile_image_one %}
+        <img src="{{section.settings.mobile_image_one | img_url: '640x' }}" class="hero_image--mobile" />
+      {% endif %}
       {% if section.settings.hero_link_one != blank %}
         <a href="{{section.settings.hero_link_one_url}}" class="hero-button">{{section.settings.hero_link_one}}</a>
       {% endif %}
     </div>
     <div class="right">
-      <img src="{{section.settings.mobile_image_two | img_url: '640x' }}" class="hero_image--mobile" />
+      {% if section.settings.mobile_image_one %}
+        <img src="{{section.settings.mobile_image_two | img_url: '640x' }}" class="hero_image--mobile" />
+      {% endif %}
       {% if section.settings.hero_link_two != blank %}
         <a href="{{section.settings.hero_link_two_url}}" class="hero-button">{{section.settings.hero_link_two}}</a>
       {% endif %}
     </div>
   </div>
+
+  <div class="hero-images desktop">
+    <div class="left">
+      {% if section.settings.desktop_image_one %}
+        <img src="{{section.settings.desktop_image_one | img_url: '1200x' }}" class="hero_image--desktop" />
+      {% endif %}
+      {% if section.settings.hero_link_one != blank %}
+        <a href="{{section.settings.hero_link_one}}" class="hero-button">{{section.settings.hero_link_one}}</a>
+      {% endif %}
+    </div>
+    <div class="right">
+      {% if section.settings.desktop_image_two %}
+        <img src="{{section.settings.desktop_image_two | img_url: '1200x' }}" class="hero_image--desktop" />
+      {% endif %}
+      {% if section.settings.hero_link_two != blank %}
+        <a href="{{section.settings.hero_link_two}}" class="hero-button">{{section.settings.hero_link_two}}</a>
+      {% endif %}
+    </div>
+  </div>
 </div>
+
 
 <style>
 
@@ -38,11 +47,11 @@
   }
 
   #hero_section--{{ section.id }}.homepage_hero .hero_image--desktop {
-    min-height: {{ section.settings.height }}
+    min-height: {{ section.settings.height }}px;
   }
 
   #hero_section--{{ section.id }}.homepage_hero .hero_image--mobile {
-    min-height: {{ section.settings.height_mobile }}
+    min-height: {{ section.settings.height_mobile }}px;
   }
 
 </style>
