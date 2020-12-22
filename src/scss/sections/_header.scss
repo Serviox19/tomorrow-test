@@ -1,9 +1,35 @@
+
+.announcement-bar__message {
+  padding: 6px 22px;
+}
+
 .site-header {
 
   .site-nav {
 
     &__label {
       border-bottom: none;
+    }
+  }
+
+  &__logo {
+    width: 110px;
+    height: 32.69px;
+    background: #000;
+
+    @media only screen and (min-width: 768px) {
+      width: 156px;
+      height: 46.36px
+    }
+
+    &-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      img {}
     }
   }
 }
