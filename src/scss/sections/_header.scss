@@ -1,6 +1,29 @@
 
-.announcement-bar__message {
-  padding: 6px 22px;
+.announcement-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "AkzidenzGrotesk-Regular";
+
+  &__message {
+    padding: 6px 22px;
+    font-size: 14px;
+    letter-spacing: .25px;
+    margin: 0 !important;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 12px
+    }
+  }
+
+  &__question {
+    position: absolute;
+    right: 15%;
+    color: #fff;
+    font-size: 12px;
+  }
 }
 
 .site-header {
@@ -9,6 +32,12 @@
 
     &__label {
       border-bottom: none;
+      font-family: "AkzidenzGrotesk-Medium";
+      font-weight: 500;
+      color: $black;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
   }
 

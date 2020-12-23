@@ -3,6 +3,8 @@
 .product__slider {
   max-width: 100%;
   margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   @media only screen and (min-width: 767px) {
     padding: 0 3rem;
@@ -20,9 +22,13 @@
       font-size: 1.5rem;
       letter-spacing: .3px;
       text-transform: none;
+      font-family: "Canela";
+      font-weight: 400;
+      color: $black;
 
       @media only screen and (min-width: 767px) {
         font-size: 2.5rem;
+        letter-spacing: .5px;
       }
     }
 
@@ -101,14 +107,25 @@
     .product__info {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      width: 100%;
+      padding: 0 1rem;
+      font-family: "AkzidenzGrotesk-Regular";
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: .5px;
+
+      @media only screen and (min-width: 768px) {
+        padding: 0 4.5rem;
+      }
 
       &--title {
         font-size: .875rem;
         line-height: 1.1rem;
         letter-spacing: .5px;
         margin-bottom: .4rem;
-        color: #000;
+        color: $black;
+        line-height: 19px;
 
         @media only screen and (min-width: 767px) {
           font-size: 1.125rem;
@@ -117,7 +134,8 @@
       }
 
       &--price {
-
+        color: $gray;
+        line-height: 24px;
       }
 
     }
